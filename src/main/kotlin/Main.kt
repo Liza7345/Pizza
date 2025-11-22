@@ -23,29 +23,38 @@ fun main() {
             }
         }
         println("Выберите пиццу: ")
-        println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца")
+        println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца\n0. Показать статистику")
         when (readln()) {
             "1" -> pizzaMoscow.neapolitanPizzaSale()
             "2" -> pizzaMoscow.romanPizzaSale()
             "3" -> pizzaMoscow.sicilianPizzaSale()
             "4" -> pizzaMoscow.tyroleanPizzaSale()
+            "0" -> currentPizzaCity.showStatisttics()
             else -> {
                 println("ERROR")
                 exitProcess(1)
             }
         }
         println("Выберите пиццу: ")
-        println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца")
+        println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца\n0. Показать статистику")
         when (readln()) {
             "1" -> pizzaMoscow.neapolitanPizzaSale()
             "2" -> pizzaMoscow.romanPizzaSale()
             "3" -> pizzaMoscow.sicilianPizzaSale()
             "4" -> pizzaMoscow.tyroleanPizzaSale()
+            "0" -> currentPizzaCity.showStatisttics()
             else -> {
                 println("ERROR")
                 exitProcess(1)
             }
         }
+        when (currentPizzaCity) {
+            is CheckPhoto -> pizzaMoscow.showCheckPhoto()
+            else -> pizzaPeter.drinkSale()
+        }
+    }
+
+    fun selectAddService (currentPizzaCity: PizzaCity) {
         when (currentPizzaCity) {
             is CheckPhoto -> pizzaMoscow.showCheckPhoto()
             else -> pizzaPeter.drinkSale()
