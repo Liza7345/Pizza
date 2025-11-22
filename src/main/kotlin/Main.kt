@@ -19,7 +19,7 @@ fun main() {
             "0" -> break
             else -> {
                 println("ERROR")
-                exitProcess(1)
+                continue
             }
         }
         println("Выберите пиццу: ")
