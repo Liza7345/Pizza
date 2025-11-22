@@ -44,4 +44,8 @@ fun main() {
                 exitProcess(1)
             }
         }
+    when (currentPizzaCity) {
+        is CheckPhoto -> pizzaMoscow.showCheckPhoto()
+        else -> pizzaPeter.drinkSale()
+    }
 }

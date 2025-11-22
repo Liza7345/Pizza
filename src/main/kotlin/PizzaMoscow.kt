@@ -4,7 +4,12 @@ class PizzaMoscow(
     ): PizzaCity(
     neapolitanPizzaPrice, romanPizzaPrice,
     sicilianPizzaPrice, tyroleanPizzaPrice
-    ) {
+    ), CheckPhoto {
+    override fun showCheckPhoto() {
+        println("У вас есть фотография чека?")
+        println("1. Да\n2. Нет")
+        if (readln() == "1") println("Вам будет скидка 50 рублей с покупки")
+    }
     override fun neapolitanPizzaSale() {
         neapolitanPizzaCount++
         println("Спасибо за покупку неаполитанской пиццы в Москве")
