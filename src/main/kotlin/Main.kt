@@ -24,40 +24,76 @@ fun main() {
         }
         println("Выберите пиццу: ")
         println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца\n0. Показать статистику")
-        when (readln()) {
-            "1" -> pizzaMoscow.neapolitanPizzaSale()
-            "2" -> pizzaMoscow.romanPizzaSale()
-            "3" -> pizzaMoscow.sicilianPizzaSale()
-            "4" -> pizzaMoscow.tyroleanPizzaSale()
-            "0" -> currentPizzaCity.showStatisttics()
-            else -> {
-                println("ERROR")
-                exitProcess(1)
-            }
-        }
+        extracted(pizzaMoscow, currentPizzaCity)
         println("Выберите пиццу: ")
         println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца\n0. Показать статистику")
-        when (readln()) {
-            "1" -> pizzaMoscow.neapolitanPizzaSale()
-            "2" -> pizzaMoscow.romanPizzaSale()
-            "3" -> pizzaMoscow.sicilianPizzaSale()
-            "4" -> pizzaMoscow.tyroleanPizzaSale()
-            "0" -> currentPizzaCity.showStatisttics()
-            else -> {
-                println("ERROR")
-                exitProcess(1)
-            }
-        }
-        when (currentPizzaCity) {
-            is CheckPhoto -> pizzaMoscow.showCheckPhoto()
-            else -> pizzaPeter.drinkSale()
+        extracted(pizzaPeter, currentPizzaCity)
         }
     }
 
-    fun selectAddService (currentPizzaCity: PizzaCity) {
-        when (currentPizzaCity) {
-            is CheckPhoto -> pizzaMoscow.showCheckPhoto()
-            else -> pizzaPeter.drinkSale()
+private fun extracted(pizzaPeter: PizzaPeter, currentPizzaCity: PizzaCity) {
+    when (readln()) {
+        "1" -> {
+            pizzaPeter.neapolitanPizzaSale()
+            selectAddService(currentPizzaCity)
         }
+
+        "2" -> {
+            pizzaPeter.romanPizzaSale()
+            selectAddService(currentPizzaCity)
+        }
+
+        "3" -> {
+            pizzaPeter.sicilianPizzaSale()
+            selectAddService(currentPizzaCity)
+        }
+
+        "4" -> {
+            pizzaPeter.tyroleanPizzaSale()
+            selectAddService(currentPizzaCity)
+        }
+
+        "0" -> currentPizzaCity.showStatisttics()
+        else -> {
+            println("ERROR")
+            exitProcess(1)
+        }
+    }
+}
+
+private fun extracted(pizzaMoscow: PizzaMoscow, currentPizzaCity: PizzaCity) {
+    when (readln()) {
+        "1" -> {
+            pizzaMoscow.neapolitanPizzaSale()
+            selectAddService(currentPizzaCity)
+        }
+
+        "2" -> {
+            pizzaMoscow.romanPizzaSale()
+            selectAddService(currentPizzaCity)
+        }
+
+        "3" -> {
+            pizzaMoscow.sicilianPizzaSale()
+            selectAddService(currentPizzaCity)
+        }
+
+        "4" -> {
+            pizzaMoscow.tyroleanPizzaSale()
+            selectAddService(currentPizzaCity)
+        }
+
+        "0" -> currentPizzaCity.showStatisttics()
+        else -> {
+            println("ERROR")
+            exitProcess(1)
+        }
+    }
+}
+
+fun selectAddService (currentPizzaCity: PizzaCity) {
+    when (currentPizzaCity) {
+        is CheckPhoto -> currentPizzaCity.showCheckPhoto()
+        is Drink -> currentPizzaCity.drinkSale()
     }
 }
