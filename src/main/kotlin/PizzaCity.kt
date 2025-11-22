@@ -14,4 +14,3 @@ abstract  class PizzaCity(
         abstract fun sicilianPizzaSale()
         abstract fun tyroleanPizzaSale()
     }
-}
