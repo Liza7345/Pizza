@@ -12,37 +12,36 @@ fun main() {
     println("Добрый день! Выберите город")
     println("1. Москва\n2. Санкт-Петербург\n")
 
-    val city = readln()
-    if (city == "1") {
-        currentPizzaCity = pizzaMoscow
-        println("Выберите пиццу: ")
-        println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца")
-        when(readln()) {
-            "1" -> pizzaMoscow.neapolitanPizzaSale()
-            "2" -> pizzaMoscow.romanPizzaSale()
-            "3" -> pizzaMoscow.sicilianPizzaSale()
-            "4" -> pizzaMoscow.tyroleanPizzaSale()
-            else -> {
-                println("ERROR")
-                exitProcess(1)
-            }
+    currentPizzaCity = when (readln()) {
+        "1"-> pizzaMoscow
+        "2" -> pizzaPeter
+        else -> {
+            println("ERROR")
+            exitProcess(1)
         }
-    } else if (city == "2") {
-        currentPizzaCity = pizzaPeter
-        println("Выберите пиццу: ")
-        println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца")
-        when(readln()) {
-            "1" -> pizzaMoscow.neapolitanPizzaSale()
-            "2" -> pizzaMoscow.romanPizzaSale()
-            "3" -> pizzaMoscow.sicilianPizzaSale()
-            "4" -> pizzaMoscow.tyroleanPizzaSale()
-            else -> {
-                println("ERROR")
-                exitProcess(1)
-            }
-        }
-    } else {
-        println("ERROR")
-        exitProcess(1)
     }
+        println("Выберите пиццу: ")
+        println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца")
+        when(readln()) {
+            "1" -> pizzaMoscow.neapolitanPizzaSale()
+            "2" -> pizzaMoscow.romanPizzaSale()
+            "3" -> pizzaMoscow.sicilianPizzaSale()
+            "4" -> pizzaMoscow.tyroleanPizzaSale()
+            else -> {
+                println("ERROR")
+                exitProcess(1)
+            }
+        }
+        println("Выберите пиццу: ")
+        println("1. Неаполитанская пицца\n2. Римская пицца\n3. Сицилийская пицца\n4. Тирольская пицца")
+        when(readln()) {
+            "1" -> pizzaMoscow.neapolitanPizzaSale()
+            "2" -> pizzaMoscow.romanPizzaSale()
+            "3" -> pizzaMoscow.sicilianPizzaSale()
+            "4" -> pizzaMoscow.tyroleanPizzaSale()
+            else -> {
+                println("ERROR")
+                exitProcess(1)
+            }
+        }
 }
